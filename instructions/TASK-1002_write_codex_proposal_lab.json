@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "task_id": "TASK-1002",
+  "created_by": "V4 - mesma tarefa em modo PROPOSTA do Codex (NÃO executada)",
+  "project_path": "C:\\Projetos\\MauTrIX-AI-Orchestrator\\lab\\git_lab",
+  "agent": "codex_cli",
+  "mode": "write_scoped",
+  "objective": "Acrescente ao FINAL de notas.txt uma nova linha que comece exatamente com 'Linha 4:' e resuma em uma frase o propósito do laboratório (use README.txt como referência). Depois crie resultado.txt com uma frase curta confirmando a alteração. Não toque em nenhum outro arquivo.",
+  "allowed_modify": [
+    "notas.txt"
+  ],
+  "allowed_create": [
+    "resultado.txt"
+  ],
+  "limits": {
+    "timeout_seconds": 300,
+    "max_attempts": 1,
+    "max_files_changed": 2,
+    "max_bytes_changed": 4000
+  },
+  "git_policy": {
+    "commit": false,
+    "push": false,
+    "merge": false,
+    "tag": false,
+    "reset": false,
+    "clean": false,
+    "rebase": false
+  },
+  "validation": [
+    {
+      "type": "contains",
+      "path": "notas.txt",
+      "text": "Linha 4:"
+    },
+    {
+      "type": "contains",
+      "path": "notas.txt",
+      "text": "Linha 3: nenhum commit é feito automaticamente."
+    },
+    {
+      "type": "max_lines",
+      "path": "resultado.txt",
+      "n": 5
+    }
+  ],
+  "notes": "Codex permanece read-only e embedded; devolve uma proposta JSON que o orquestrador valida e aplica."
+}

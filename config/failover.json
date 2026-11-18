@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "priority": ["codex_cli", "claude_code"],
+  "write_priority": ["claude_code", "codex_cli"],
+  "ttl_seconds": {"AVAILABLE_VERIFIED": 900, "QUOTA_LIMITED": 1800, "AUTH_ERROR": 600, "TECHNICAL_ERROR": 600},
+  "enabled_for_real_projects": false,
+  "notas": "Ordem = prioridade. Os TTLs não são cota nem previsão de renovação: apenas o tempo em que um registro é considerado válido antes de voltar a UNKNOWN. A transferência só opera em lab/."
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Tarefa enviada a um agente (instrução vinda do coordenador GPT)",
+  "type": "object",
+  "required": ["schema_version", "task_id", "project_path", "agent", "mode", "objective", "limits", "git_policy", "acceptance"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": 1},
+    "task_id": {"type": "string", "pattern": "^TASK-[0-9]{4}$"},
+    "created_by": {"type": "string", "description": "Texto livre: quem elaborou a instrução (ex.: coordenador GPT)."},
+    "project_path": {"type": "string", "description": "Caminho absoluto do projeto onde o agente atua."},
+    "agent": {"enum": ["claude_code", "codex_cli", "antigravity_cli", "antigravity_ide", "any_available"]},
+    "mode": {"enum": ["read_only", "write"], "description": "read_only é o padrão seguro. write exige confirmação humana na etapa de preparação."},
+    "objective": {"type": "string", "minLength": 1},
+    "context_files": {"type": "array", "items": {"type": "string"}, "description": "Arquivos que o agente deve ler primeiro."},
+    "allowed_write_paths": {"type": "array", "items": {"type": "string"}, "description": "Obrigatório quando mode=write. Vazio significa nada pode ser escrito."},
+    "forbidden_paths": {"type": "array", "items": {"type": "string"}},
+    "limits": {
+      "type": "object",
+      "required": ["timeout_seconds", "max_attempts"],
+      "additionalProperties": false,
+      "properties": {
+        "timeout_seconds": {"type": "integer", "minimum": 30, "maximum": 7200},
+        "max_attempts": {"type": "integer", "minimum": 1, "maximum": 3}
+      }
+    },
+    "git_policy": {
+      "type": "object",
+      "required": ["commit", "push", "merge", "tag"],
+      "additionalProperties": false,
+      "properties": {
+        "commit": {"const": false},
+        "push": {"const": false},
+        "merge": {"const": false},
+        "tag": {"const": false}
+      },
+      "description": "Todos fixos em false. Uma tarefa que peça outra coisa é rejeitada na importação."
+    },
+    "acceptance": {"type": "array", "minItems": 1, "items": {"type": "string"}, "description": "Critérios verificáveis. Cada um deve poder ser marcado como confirmado ou não no relatório."},
+    "notes": {"type": "string"}
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "nota": "Cada afirmação traz o nível de confirmação. 'oficial' = documentação do fabricante lida em 05/11/2026. 'comunidade' = issue/artigo de terceiros. 'nao_confirmado' = precisa ser verificado localmente com --help. Nada aqui lê tokens, cookies ou arquivos de autenticação.",
+  "agents": [
+    {
+      "id": "claude_code",
+      "enabled": true,
+      "confirmado_localmente_v1_1": {"versao": "2.1.302", "autenticacao": "AUTENTICADO via 'claude auth status' (authMethod claude.ai)", "flags_no_help": ["--print", "--output-format", "--json-schema", "--allowedTools", "--permission-mode", "--permission-prompts", "--max-budget-usd", "--restricted", "--safe-mode", "--no-session-persistence", "--effort"], "flag_ausente": "--max-turns"},
+      "display": "Claude Code",
+      "commands": ["claude"],
+      "version_args": ["--version"],
+      "gui_risk": false,
+      "auth_check": {
+        "argv": ["auth", "status"],
+        "confirmacao": "oficial",
+        "fonte": "https://code.claude.com/docs/en/cli-reference",
+        "semantica": "Imprime JSON; sai com 0 se autenticado e 1 se não.",
+        "documented_exit_semantics": true,
+        "keep_json_keys": ["authMethod", "loggedIn"]
+      },
+      "headless": {
+        "confirmacao": "oficial",
+        "fonte": "https://code.claude.com/docs/en/headless",
+        "invocacao": "claude -p \"<prompt>\"",
+        "flags_documentadas": [
+          "--output-format text|json|stream-json",
+          "--allowedTools",
+          "--permission-mode",
+          "--permission-prompts none",
+          "--max-budget-usd",
+          "--json-schema",
+          "--continue / --resume",
+          "--bare"
+        ],
+        "markers_no_help": ["--print", "--output-format"],
+        "avisos": [
+          "Sem --bare, 'claude -p' carrega hooks e MCP do projeto mesmo em pasta nunca confiada.",
+          "--bare não usa o login da assinatura; exige ANTHROPIC_API_KEY. Não adotar --bare na versão gratuita.",
+          "total_cost_usd no JSON é estimativa do cliente, não a cota restante."
+        ]
+      },
+      "limit_detection": {
+        "confirmacao": "oficial",
+        "fonte": "https://code.claude.com/docs/en/headless",
+        "sinais": ["evento system/api_retry com error=rate_limit, overloaded, billing_error, account_on_hold"]
+      },
+      "quota": {
+        "consultavel_de_forma_oficial_e_nao_interativa": false,
+        "status": "STATUS DESCONHECIDO",
+        "motivo": "A documentação lida não descreve comando para consultar o uso restante da assinatura fora da interface interativa."
+      }
+    },
+    {
+      "id": "codex_cli",
+      "enabled": true,
+      "confirmado_localmente_v1_1": {"versao": "0.166.0", "autenticacao": "'codex login status' imprimiu 'Logged in using ChatGPT' (código 0)", "flags_exec_no_help": ["--sandbox read-only|workspace-write|danger-full-access", "--cd", "--skip-git-repo-check", "--ephemeral", "--ignore-user-config", "--json", "--output-schema", "--output-last-message", "--color"], "flags_ausentes_em_exec": ["--ask-for-approval", "--full-auto"], "prompt": "argumento ou stdin ('-')"},
+      "display": "OpenAI Codex CLI",
+      "context_delivery": "embedded",
+      "exec_extra_args": [],
+      "nota_v3_3": "context_delivery: 'agent_reads' (padrão: o Codex lê pelo shell) ou 'embedded' (o orquestrador lê em UTF-8 estrito e entrega no prompt, sem depender do shell do Codex). exec_extra_args aceita somente [] ou [\"-c\", \"windows.sandbox=\\\"unelevated\\\"\"]; qualquer outro valor é recusado. O sandbox permanece read-only.",
+      "commands": ["codex"],
+      "version_args": ["--version"],
+      "gui_risk": false,
+      "auth_check": {
+        "argv": ["login", "status"],
+        "confirmacao": "comunidade",
+        "fonte": "https://github.com/openai/codex/issues/10233 (resposta de mantenedor: 'codex login status' só informa autenticação)",
+        "semantica": "Não confirmada pela documentação oficial lida. O código de saída não é tratado como autoritativo.",
+        "documented_exit_semantics": false,
+        "positive_regex": "^\\s*logged in",
+        "observado_localmente": "V1: 'codex login status' imprimiu 'Logged in using ChatGPT' com código 0 (versão 0.166.0). Só a evidência positiva é aceita; o caso negativo não foi observado.",
+        "keep_json_keys": []
+      },
+      "headless": {
+        "confirmacao": "parcial",
+        "fonte": "https://github.com/openai/codex/issues/10233 menciona 'codex exec --json'. A página oficial de modo não interativo não pôde ser lida nesta sessão (fora da lista de acesso).",
+        "invocacao": "codex exec \"<prompt>\"",
+        "flags_documentadas": ["--json (citada na issue)"],
+        "markers_no_help": ["exec"],
+        "avisos": [
+          "Flags de sandbox, aprovação e diretório devem ser lidas de 'codex exec --help' localmente antes de qualquer automação."
+        ]
+      },
+      "limit_detection": {
+        "confirmacao": "nao_confirmado",
+        "sinais": ["a definir após capturar uma mensagem real de limite"]
+      },
+      "quota": {
+        "consultavel_de_forma_oficial_e_nao_interativa": false,
+        "status": "STATUS DESCONHECIDO",
+        "motivo": "'/status' existe só na interface interativa. Não há subcomando de status; 'codex exec --json' não traz dados de cota (issue #10233, ainda aberta). Um widget da comunidade usa 'codex app-server' e 'account/rateLimits/read', que não é caminho documentado e não será usado."
+      }
+    },
+    {
+      "id": "antigravity_cli",
+      "enabled": false,
+      "disabled_reason": "Nenhum executável de CLI ('agy') encontrado no PATH e nenhuma interface de automação confirmada.",
+      "display": "Google Antigravity CLI",
+      "commands": ["agy"],
+      "version_args": ["--version"],
+      "gui_risk": false,
+      "auth_check": null,
+      "headless": {
+        "confirmacao": "comunidade",
+        "fonte": "https://cloud.google.com/blog/topics/developers-practitioners/choosing-your-surface-antigravity-20-antigravity-cli-antigravity-ide-or-antigravity-sdk (oficial: diz que a CLI suporta execução headless, sem sintaxe). Sintaxe 'agy -p' vem de artigo de terceiros (computingforgeeks).",
+        "invocacao": "agy -p \"<prompt>\" (não confirmado por fonte oficial)",
+        "flags_documentadas": [],
+        "markers_no_help": ["--print", "--prompt", "--output-format"],
+        "avisos": [
+          "Confirmar tudo com 'agy --help' local. Não automatizar até confirmar."
+        ]
+      },
+      "limit_detection": {
+        "confirmacao": "nao_confirmado",
+        "sinais": []
+      },
+      "quota": {
+        "consultavel_de_forma_oficial_e_nao_interativa": false,
+        "status": "STATUS DESCONHECIDO",
+        "motivo": "Fonte de terceiros cita '/usage' e '/credits' dentro da interface interativa. Nada confirmado para modo headless."
+      }
+    },
+    {
+      "id": "antigravity_ide",
+      "enabled": false,
+      "disabled_reason": "IDE gráfica; não é CLI de automação. Mantida como agente manual.",
+      "detectado_v1_1": {"registro_hkcu": ["Antigravity 2.29.0 (Google)", "Antigravity IDE (User) 2.1.1 (Google)"], "pastas": ["%LOCALAPPDATA%\\Programs\\Antigravity IDE (Antigravity IDE.exe, bin\\antigravity-ide.cmd)", "%LOCALAPPDATA%\\Programs\\antigravity (Antigravity.exe)"], "observacao": "Executáveis localizados mas NÃO executados. Se 'bin\\antigravity-ide.cmd' ou 'Antigravity.exe' aceitam modo headless não foi verificado."},
+      "display": "Google Antigravity IDE",
+      "commands": ["antigravity"],
+      "version_args": ["--version"],
+      "gui_risk": true,
+      "auth_check": null,
+      "headless": {
+        "confirmacao": "nao_aplicavel",
+        "fonte": "A IDE é uma interface gráfica. O diagnóstico só localiza o executável e não o executa, para não abrir janela.",
+        "invocacao": null,
+        "flags_documentadas": [],
+        "markers_no_help": [],
+        "avisos": ["Tratar como agente manual: o usuário cola a instrução e devolve o resultado."]
+      },
+      "limit_detection": {
+        "confirmacao": "nao_aplicavel",
+        "sinais": []
+      },
+      "quota": {
+        "consultavel_de_forma_oficial_e_nao_interativa": false,
+        "status": "STATUS DESCONHECIDO",
+        "motivo": "Sem fonte confiável."
+      }
+    }
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "platform": "win32",
+  "results": [
+    {
+      "name": "A Codex disponível e tarefa concluída",
+      "pass": true
+    },
+    {
+      "name": "B Codex limite -> transfere ao Claude",
+      "pass": true
+    },
+    {
+      "name": "C Claude limite -> transfere ao Codex",
+      "pass": true
+    },
+    {
+      "name": "D Ambos indisponíveis: interrompe",
+      "pass": true
+    },
+    {
+      "name": "D2 Segunda tentativa não reexecuta agentes em QUOTA_LIMITED válido",
+      "pass": true
+    },
+    {
+      "name": "E Erro técnico NÃO é limite e NÃO transfere",
+      "pass": true
+    },
+    {
+      "name": "E2 overloaded/529 é técnico, não limite",
+      "pass": true
+    },
+    {
+      "name": "F Saída inválida (código 0): sem transferir",
+      "pass": true
+    },
+    {
+      "name": "F2 Mesma tarefa bloqueada até revisão humana",
+      "pass": true
+    },
+    {
+      "name": "F3 Processo morto no meio: sem transferir",
+      "pass": true
+    },
+    {
+      "name": "F4 Transferência interrompida (in_progress) bloqueia reexecução",
+      "pass": true
+    },
+    {
+      "name": "G Lock existente impede execução e não é removido",
+      "pass": true
+    },
+    {
+      "name": "G2 Execução simultânea recusada enquanto outra roda",
+      "pass": true
+    },
+    {
+      "name": "G3 Primeira execução terminou por timeout e liberou locks",
+      "pass": true
+    },
+    {
+      "name": "H Timeout: outcome TIMEOUT, parada segura, locks liberados",
+      "pass": true
+    },
+    {
+      "name": "H2 Processo do agente foi encerrado",
+      "pass": true
+    },
+    {
+      "name": "H3 Recuperação: após revisão, nova execução funciona",
+      "pass": true
+    },
+    {
+      "name": "I Escrita indevida detectada, sem transferir e sem apagar",
+      "pass": true
+    },
+    {
+      "name": "I2 Arquivos originais do laboratório intactos após todos os cenários",
+      "pass": true
+    },
+    {
+      "name": "Q1 Exit 0 + todos os critérios: EXECUTION_SUCCESS + TASK_ACCEPTED + completed",
+      "pass": true
+    },
+    {
+      "name": "Q2 Exit 0 com um critério reprovado (line_count errado): EXECUTION_SUCCESS + TASK_REJECTED, nunca 'completed'",
+      "pass": true
+    },
+    {
+      "name": "Q2 Exit 0 com um critério reprovado (line_count errado): NÃO transfere e NÃO é tratada como cota",
+      "pass": true
+    },
+    {
+      "name": "Q2 Exit 0 com um critério reprovado (line_count errado): não repete; bloqueada até revisão",
+      "pass": true
+    },
+    {
+      "name": "Q3 JSON válido com dados incorretos (zeros, resposta real da V3.1): EXECUTION_SUCCESS + TASK_REJECTED, nunca 'completed'",
+      "pass": true
+    },
+    {
+      "name": "Q3 JSON válido com dados incorretos (zeros, resposta real da V3.1): NÃO transfere e NÃO é tratada como cota",
+      "pass": true
+    },
+    {
+      "name": "Q3 JSON válido com dados incorretos (zeros, resposta real da V3.1): não repete; bloqueada até revisão",
+      "pass": true
+    },
+    {
+      "name": "Q4 Resposta ausente: UNKNOWN_RESULT, sem aprovação e sem transferência",
+      "pass": true
+    },
+    {
+      "name": "Q5 'run' com critério reprovado: status task_rejected e código de saída != 0",
+      "pass": true
+    },
+    {
+      "name": "Q6 Evidência: tarefa rejeitada NÃO vira A_CODEX_EXECUTOU_COM_SUCESSO",
+      "pass": true
+    },
+    {
+      "name": "Q6b Evidência: aprovação real = veredito A",
+      "pass": true
+    },
+    {
+      "name": "Q6c Evidência: limite real + transferência aprovada = veredito B",
+      "pass": true
+    },
+    {
+      "name": "Q7 Registro AVAILABLE_VERIFIED anterior à V3.2 é tratado como UNKNOWN",
+      "pass": true
+    },
+    {
+      "name": "J Erro de autenticação em execução -> transfere (sem efeitos)",
+      "pass": true
+    },
+    {
+      "name": "R1 Bloqueio de política: diagnóstico 'policy', TASK_REJECTED, sem transferir, sem cota",
+      "pass": true
+    },
+    {
+      "name": "R2 Erro de codificação: diagnóstico 'encoding' (distinto de política), TASK_REJECTED, sem transferir",
+      "pass": true
+    },
+    {
+      "name": "R3 Saída correta com entrega embutida (sem depender do shell): TASK_ACCEPTED + completed",
+      "pass": true
+    },
+    {
+      "name": "R3c Prompt com CRLF (como no Windows) é lido pelo agente simulado: line_count 12, sem 'blocked by policy'",
+      "pass": true
+    },
+    {
+      "name": "R3b Prompt embutido contém o arquivo como DADOS e o sandbox continua read-only",
+      "pass": true
+    },
+    {
+      "name": "R4 Arquivos do laboratório preservados após os cenários R1-R3",
+      "pass": true
+    },
+    {
+      "name": "R5 Classificação de textos: política, codificação, cota, autenticação, técnico e nenhum são distintos",
+      "pass": true
+    },
+    {
+      "name": "R6 Arquivo não-UTF-8: erro de ENCODING (não política), agente não iniciado, sem transferência",
+      "pass": true
+    },
+    {
+      "name": "R7 Extra permitido (windows.sandbox=unelevated) entra no comando e mantém --sandbox read-only",
+      "pass": true
+    },
+    {
+      "name": "R7b Qualquer outro extra (sandbox mais permissivo) é recusado",
+      "pass": true
+    },
+    {
+      "name": "R8 Laboratório ainda idêntico ao original no fim dos cenários V3.3",
+      "pass": true
+    },
+    {
+      "name": "S1 Dry-run TASK-0004: aprovado, nenhum agente iniciado, sandbox read-only, conteúdo embutido (12 linhas)",
+      "pass": true
+    },
+    {
+      "name": "S2 Dry-run recusa configuração sem 'embedded' (agent_reads)",
+      "pass": true
+    },
+    {
+      "name": "S3 Execução (simulada) aprovada: line_count 12, JSON válido, TASK_ACCEPTED, arquivos e locks preservados",
+      "pass": true
+    },
+    {
+      "name": "S3c Regressão: agent_started da evidência = True e igual ao relatório da execução real/simulada",
+      "pass": true
+    },
+    {
+      "name": "S3b Histórico de TASK-0003 e log antigo preservados; relatório novo é de TASK-0004",
+      "pass": true
+    },
+    {
+      "name": "S4 Segunda execução de TASK-0004 é recusada antes de iniciar o agente (execução única)",
+      "pass": true
+    },
+    {
+      "name": "S5 Confirmação errada é recusada sem iniciar o agente",
+      "pass": true
+    },
+    {
+      "name": "S6 Contagem errada do agente: VALIDACAO_REPROVADA (nunca aprovada), sem nova tentativa",
+      "pass": true
+    },
+    {
+      "name": "S7 Laboratório idêntico ao original após a validação TASK-0004",
+      "pass": true
+    },
+    {
+      "name": "K Nenhum argumento proibido/git nas chamadas simuladas",
+      "pass": true
+    },
+    {
+      "name": "K2 Projeto fora do laboratório é rejeitado",
+      "pass": true
+    }
+  ],
+  "hang_pids_seen": [
+    {
+      "pid": 13072,
+      "alive_at_end": false
+    },
+    {
+      "pid": 34528,
+      "alive_at_end": false
+    }
+  ]
+}

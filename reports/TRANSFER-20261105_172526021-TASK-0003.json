@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "transfer_id": "TRANSFER-20261105_172526021-TASK-0003",
+  "task_id": "TASK-0003",
+  "state": "rejected",
+  "started_at": "2026-11-05T17:25:26-03:00",
+  "finished_at": null,
+  "priority": [
+    "codex_cli",
+    "claude_code"
+  ],
+  "availability_at_start": {
+    "codex_cli": {
+      "state": "UNKNOWN",
+      "note": "registro AVAILABLE_VERIFIED anterior à V3.2 ignorado; reverificar"
+    },
+    "claude_code": {
+      "state": "UNKNOWN",
+      "note": "sem verificação registrada"
+    }
+  },
+  "steps": [],
+  "final_reason": "registro anterior bloqueia nova execução (TRANSFER-20261105_155240703-TASK-0003.json): resultado desconhecido ou transferência interrompida; revisar manualmente e mover o registro para reports\\resolved\\",
+  "final_outcome": null,
+  "handoffs": []
+}

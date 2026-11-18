@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task_id": "TASK-0002",
+  "created_by": "teste de laboratório V2",
+  "project_path": "C:\\Projetos\\MauTrIX-AI-Orchestrator\\lab\\projeto_descartavel",
+  "agent": "codex_cli",
+  "mode": "read_only",
+  "objective": "Ler texto_exemplo.txt e produzir um relatório estruturado: resumo em até 3 frases, contagem de linhas não vazias, contagem aproximada de palavras, até 5 pontos principais e a próxima ação sugerida.",
+  "context_files": ["texto_exemplo.txt"],
+  "forbidden_paths": [],
+  "limits": {"timeout_seconds": 300, "max_attempts": 1},
+  "git_policy": {"commit": false, "push": false, "merge": false, "tag": false},
+  "acceptance": [
+    "Nenhum arquivo do laboratório foi criado, alterado ou removido",
+    "A resposta do agente é um JSON válido conforme o schema",
+    "line_count informado confere com a contagem feita pelo orquestrador"
+  ],
+  "notes": "Teste seguro e não destrutivo. Não usar o projeto do jogo."
+}

@@ -1,0 +1,233 @@
+{
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "platform": "win32",
+  "expected": 56,
+  "executed": 56,
+  "crashed": false,
+  "results": [
+    {
+      "name": "L1 Laborat\u00f3rio Git criado e estado inicial registrado (branch, HEAD, n\u00e3o rastreados)",
+      "ok": true
+    },
+    {
+      "name": "L2 O commit-base \u00e9 o \u00daNICO commit e n\u00e3o h\u00e1 tags",
+      "ok": true
+    },
+    {
+      "name": "G0 gitops recusa reset/clean/merge/rebase/push/tag/commit/checkout/stash/add",
+      "ok": true
+    },
+    {
+      "name": "D1 Dry-run: nada criado, reposit\u00f3rio intacto, Git registrado",
+      "ok": true
+    },
+    {
+      "name": "D2 Claude: workspace isolado, --restricted, sem shell/rede, permiss\u00f5es por arquivo, sem Bash permitido",
+      "ok": true
+    },
+    {
+      "name": "D3 Codex: continua read-only, sem bypass e sem workspace-write; escrita s\u00f3 por proposta",
+      "ok": true
+    },
+    {
+      "name": "D4 Codex N\u00c3O pode ser configurado para editar diretamente (sem contornar o shell bloqueado)",
+      "ok": true
+    },
+    {
+      "name": "A1 Altera\u00e7\u00e3o e cria\u00e7\u00e3o autorizadas: TASK_ACCEPTED, completed, promovidas",
+      "ok": true
+    },
+    {
+      "name": "A2 N\u00e3o rastreado e ignorado preservados; config.json e demais arquivos id\u00eanticos",
+      "ok": true
+    },
+    {
+      "name": "A3 Git: HEAD/branch/refs iguais, nenhum commit, nenhuma tag; diff mostra s\u00f3 notas.txt",
+      "ok": true
+    },
+    {
+      "name": "A4 Backup, manifesto de preserva\u00e7\u00e3o, patch (git diff) e relat\u00f3rio gravados",
+      "ok": true
+    },
+    {
+      "name": "A5 Locks liberados e hist\u00f3rico (relat\u00f3rio antigo) preservado",
+      "ok": true
+    },
+    {
+      "name": "A6 Workspace N\u00c3O cont\u00e9m .git nem arquivos n\u00e3o rastreados/ignorados (conjunto exato = rastreados + criado)",
+      "ok": true
+    },
+    {
+      "name": "J0 Restaura\u00e7\u00e3o exige confirma\u00e7\u00e3o exata",
+      "ok": true
+    },
+    {
+      "name": "J1 Recupera\u00e7\u00e3o sem perda: restaura o original, remove o criado, preserva n\u00e3o rastreados",
+      "ok": true
+    },
+    {
+      "name": "B1 Altera\u00e7\u00e3o PROIBIDA (config.json): VIOLATION, status violation_review_required, nada promovido, reposit\u00f3rio intacto",
+      "ok": true
+    },
+    {
+      "name": "B2 Exclus\u00e3o PROIBIDA (README.txt): VIOLATION, status violation_review_required, nada promovido, reposit\u00f3rio intacto",
+      "ok": true
+    },
+    {
+      "name": "B3 Cria\u00e7\u00e3o PROIBIDA (intruso.txt): VIOLATION, status violation_review_required, nada promovido, reposit\u00f3rio intacto",
+      "ok": true
+    },
+    {
+      "name": "B4 Mais arquivos que o limite: VIOLATION, status violation_review_required, nada promovido, reposit\u00f3rio intacto",
+      "ok": true
+    },
+    {
+      "name": "B5 Conte\u00fado grande demais: VIOLATION, status violation_review_required, nada promovido, reposit\u00f3rio intacto",
+      "ok": true
+    },
+    {
+      "name": "B6 Conte\u00fado bin\u00e1rio: VIOLATION, status violation_review_required, nada promovido, reposit\u00f3rio intacto",
+      "ok": true
+    },
+    {
+      "name": "B7 Escrita no reposit\u00f3rio real (rastreado): detectada, VIOLATION, nada promovido, sem restaura\u00e7\u00e3o autom\u00e1tica (revis\u00e3o humana)",
+      "ok": true
+    },
+    {
+      "name": "B8 Escrita em arquivo N\u00c3O rastreado do reposit\u00f3rio real: detectada, VIOLATION, nada promovido, sem restaura\u00e7\u00e3o autom\u00e1tica (revis\u00e3o humana)",
+      "ok": true
+    },
+    {
+      "name": "F1 Falha de valida\u00e7\u00e3o: EXECUTION_SUCCESS + TASK_REJECTED, nada promovido, reposit\u00f3rio intacto",
+      "ok": true
+    },
+    {
+      "name": "E1 Interrup\u00e7\u00e3o durante a edi\u00e7\u00e3o: erro t\u00e9cnico, altera\u00e7\u00f5es s\u00f3 no workspace, reposit\u00f3rio intacto",
+      "ok": true
+    },
+    {
+      "name": "T1 Timeout ap\u00f3s escrita: TIMEOUT, altera\u00e7\u00f5es parciais s\u00f3 no workspace, reposit\u00f3rio intacto, processo encerrado, locks livres",
+      "ok": true
+    },
+    {
+      "name": "C1 Codex (read-only) prop\u00f5e, o orquestrador valida e aplica: TASK_ACCEPTED e promovido",
+      "ok": true
+    },
+    {
+      "name": "C2 Proposta fora do escopo (config.json): VIOLATION, nada promovido, reposit\u00f3rio intacto",
+      "ok": true
+    },
+    {
+      "name": "C3 Proposta com '..' (travessia): VIOLATION, nada promovido, reposit\u00f3rio intacto",
+      "ok": true
+    },
+    {
+      "name": "C4 Codex escreveu no workspace apesar de read-only: VIOLATION, nada promovido, reposit\u00f3rio intacto",
+      "ok": true
+    },
+    {
+      "name": "C5 Proposta que falha na valida\u00e7\u00e3o: TASK_REJECTED, nada promovido",
+      "ok": true
+    },
+    {
+      "name": "P1 Altera\u00e7\u00e3o pendente no arquivo autorizado: recusada, nada sobrescrito, agente nem iniciou",
+      "ok": true
+    },
+    {
+      "name": "P2 Altera\u00e7\u00e3o pendente em OUTRO arquivo: registrada e preservada; tarefa segue",
+      "ok": true
+    },
+    {
+      "name": "P3 Opera\u00e7\u00e3o Git em andamento (merge): recusada",
+      "ok": true
+    },
+    {
+      "name": "P4 Pasta sem reposit\u00f3rio Git: recusada",
+      "ok": true
+    },
+    {
+      "name": "K Caminho inseguro ['../fora.txt'] \u00e9 recusado antes de qualquer agente",
+      "ok": true
+    },
+    {
+      "name": "K Caminho inseguro ['.git/config'] \u00e9 recusado antes de qualquer agente",
+      "ok": true
+    },
+    {
+      "name": "K Caminho inseguro ['C:/x.txt'] \u00e9 recusado antes de qualquer agente",
+      "ok": true
+    },
+    {
+      "name": "K Caminho inseguro ['a\\\\b.txt'] \u00e9 recusado antes de qualquer agente",
+      "ok": true
+    },
+    {
+      "name": "K Caminho inseguro ['con.txt'] \u00e9 recusado antes de qualquer agente",
+      "ok": true
+    },
+    {
+      "name": "K Caminho inseguro ['/abs.txt'] \u00e9 recusado antes de qualquer agente",
+      "ok": true
+    },
+    {
+      "name": "K Caminho inseguro ['.gitignore'] \u00e9 recusado antes de qualquer agente",
+      "ok": true
+    },
+    {
+      "name": "K2 Escrita fora de lab\\git_lab (outro projeto) \u00e9 recusada",
+      "ok": true
+    },
+    {
+      "name": "K3 git_policy com commit=true \u00e9 recusada",
+      "ok": true
+    },
+    {
+      "name": "K4 Sem confirma\u00e7\u00e3o correta nada executa",
+      "ok": true
+    },
+    {
+      "name": "S1 Execu\u00e7\u00e3o simult\u00e2nea bloqueada (BUSY); a primeira n\u00e3o promove; reposit\u00f3rio intacto",
+      "ok": true
+    },
+    {
+      "name": "S2 Lock existente impede a escrita e n\u00e3o \u00e9 removido",
+      "ok": true
+    },
+    {
+      "name": "V1 Limite ANTES de modificar arquivos: transfer\u00eancia segura Claude -> Codex (proposta) e promo\u00e7\u00e3o",
+      "ok": true
+    },
+    {
+      "name": "V2 Limite DEPOIS de modificar arquivos: interrompe, exige revis\u00e3o, N\u00c3O transfere, reposit\u00f3rio intacto",
+      "ok": true
+    },
+    {
+      "name": "V3 Nova tentativa fica bloqueada at\u00e9 revis\u00e3o humana",
+      "ok": true
+    },
+    {
+      "name": "V4 Viola\u00e7\u00e3o de escopo interrompe a cadeia (sem transferir)",
+      "ok": true
+    },
+    {
+      "name": "V5 Interrup\u00e7\u00e3o durante a edi\u00e7\u00e3o (processo morto): n\u00e3o transfere e exige revis\u00e3o",
+      "ok": true
+    },
+    {
+      "name": "V6 Ambos no limite sem altera\u00e7\u00f5es: para (nenhum agente eleg\u00edvel) e reposit\u00f3rio intacto",
+      "ok": true
+    },
+    {
+      "name": "V7 Sem transfer\u00eancia: Claude conclui e promove",
+      "ok": true
+    },
+    {
+      "name": "V8 Reposit\u00f3rio mudou entre passos: o passo seguinte \u00e9 recusado, agente n\u00e3o inicia, nada sobrescrito",
+      "ok": true
+    },
+    {
+      "name": "Z Projeto de leitura lab/projeto_descartavel n\u00e3o foi tocado pela V4",
+      "ok": true
+    }
+  ]
+}

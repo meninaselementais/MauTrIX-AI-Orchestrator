@@ -1,0 +1,61 @@
+{
+  "captured_at": "2026-11-05T19:23:30-03:00",
+  "git_version": "git version 2.55.0.windows.3",
+  "branch": "main",
+  "head": "21de4b969a3e11aad30d63071b25f81f5269f6b5",
+  "tracked_changes": [],
+  "untracked": [
+    "rascunho_local.txt"
+  ],
+  "in_progress": [],
+  "files": {
+    ".gitignore": {
+      "bytes": 6,
+      "sha256": "cd626bd30aa3875cc7c01d50050e4f88e84d4691457209871f27494ffd5f4ab4",
+      "tracked": true,
+      "ignored_or_untracked": false
+    },
+    "README.txt": {
+      "bytes": 203,
+      "sha256": "d2a9ecf839313f116508ec897deda8a70548ed0914d1c973f52d58be68639671",
+      "tracked": true,
+      "ignored_or_untracked": false
+    },
+    "cache_local.tmp": {
+      "bytes": 70,
+      "sha256": "d98e7eb9564600127b7f74f7c809209a5e7767faec732b40fb31561888c02720",
+      "tracked": false,
+      "ignored_or_untracked": true
+    },
+    "config.json": {
+      "bytes": 115,
+      "sha256": "3e906fa0d9170a3a04843a0a5bc085da34ed6483927b4f8bd57b8cde395d6359",
+      "tracked": true,
+      "ignored_or_untracked": false
+    },
+    "docs/guia.md": {
+      "bytes": 105,
+      "sha256": "1f311a1c6d6ec416b59e181a2e9734e7f2e4655fe14e650ae18dfd3f9a70bb03",
+      "tracked": true,
+      "ignored_or_untracked": false
+    },
+    "notas.txt": {
+      "bytes": 234,
+      "sha256": "10956bd093eafe7dc1914dcfcca1c026213de921d7c478750c33eb7889e5de46",
+      "tracked": true,
+      "ignored_or_untracked": false
+    },
+    "rascunho_local.txt": {
+      "bytes": 67,
+      "sha256": "02b4088634f8222cc421f2b340888293af18e8a5879687b941b5d76cfff84614",
+      "tracked": false,
+      "ignored_or_untracked": true
+    },
+    "src/soma.py": {
+      "bytes": 105,
+      "sha256": "323ed9ed7d96c0be77c3fafa52f75078b5b243a602e82defaaeee5fa2cc71236",
+      "tracked": true,
+      "ignored_or_untracked": false
+    }
+  }
+}

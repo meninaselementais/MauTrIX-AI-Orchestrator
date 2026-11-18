@@ -1,0 +1,17 @@
+﻿# Logs, locks and runtime runs
+logs/
+locks/
+runs/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environment & Secrets
+.env
+.env.*
+*.pem
+*.key
+*.tmp

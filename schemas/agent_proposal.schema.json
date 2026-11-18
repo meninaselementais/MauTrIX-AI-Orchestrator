@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["summary", "changes"],
+  "properties": {
+    "summary": {"type": "string"},
+    "changes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "action", "content"],
+        "properties": {
+          "path": {"type": "string"},
+          "action": {"type": "string", "enum": ["modify", "create"]},
+          "content": {"type": "string"}
+        }
+      }
+    }
+  }
+}

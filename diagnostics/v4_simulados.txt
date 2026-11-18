@@ -1,0 +1,121 @@
+[05/11/2026 20:11:10,49] inicio 
+Python 3.11.9
+git version 2.55.0.windows.3
+PASS A Codex disponível e tarefa concluída
+PASS B Codex limite -> transfere ao Claude
+PASS C Claude limite -> transfere ao Codex
+PASS D Ambos indisponíveis: interrompe
+PASS D2 Segunda tentativa não reexecuta agentes em QUOTA_LIMITED válido
+PASS E Erro técnico NÃO é limite e NÃO transfere
+PASS E2 overloaded/529 é técnico, não limite
+PASS F Saída inválida (código 0): sem transferir
+PASS F2 Mesma tarefa bloqueada até revisão humana
+PASS F3 Processo morto no meio: sem transferir
+PASS F4 Transferência interrompida (in_progress) bloqueia reexecução
+PASS G Lock existente impede execução e não é removido
+PASS G2 Execução simultânea recusada enquanto outra roda
+PASS G3 Primeira execução terminou por timeout e liberou locks
+PASS H Timeout: outcome TIMEOUT, parada segura, locks liberados
+PASS H2 Processo do agente foi encerrado
+PASS H3 Recuperação: após revisão, nova execução funciona
+PASS I Escrita indevida detectada, sem transferir e sem apagar
+PASS I2 Arquivos originais do laboratório intactos após todos os cenários
+PASS Q1 Exit 0 + todos os critérios: EXECUTION_SUCCESS + TASK_ACCEPTED + completed
+PASS Q2 Exit 0 com um critério reprovado (line_count errado): EXECUTION_SUCCESS + TASK_REJECTED, nunca 'completed'
+PASS Q2 Exit 0 com um critério reprovado (line_count errado): NÃO transfere e NÃO é tratada como cota
+PASS Q2 Exit 0 com um critério reprovado (line_count errado): não repete; bloqueada até revisão
+PASS Q3 JSON válido com dados incorretos (zeros, resposta real da V3.1): EXECUTION_SUCCESS + TASK_REJECTED, nunca 'completed'
+PASS Q3 JSON válido com dados incorretos (zeros, resposta real da V3.1): NÃO transfere e NÃO é tratada como cota
+PASS Q3 JSON válido com dados incorretos (zeros, resposta real da V3.1): não repete; bloqueada até revisão
+PASS Q4 Resposta ausente: UNKNOWN_RESULT, sem aprovação e sem transferência
+PASS Q5 'run' com critério reprovado: status task_rejected e código de saída != 0
+PASS Q6 Evidência: tarefa rejeitada NÃO vira A_CODEX_EXECUTOU_COM_SUCESSO
+PASS Q6b Evidência: aprovação real = veredito A
+PASS Q6c Evidência: limite real + transferência aprovada = veredito B
+PASS Q7 Registro AVAILABLE_VERIFIED anterior à V3.2 é tratado como UNKNOWN
+PASS J Erro de autenticação em execução -> transfere (sem efeitos)
+PASS R1 Bloqueio de política: diagnóstico 'policy', TASK_REJECTED, sem transferir, sem cota
+PASS R2 Erro de codificação: diagnóstico 'encoding' (distinto de política), TASK_REJECTED, sem transferir
+PASS R3 Saída correta com entrega embutida (sem depender do shell): TASK_ACCEPTED + completed
+PASS R3c Prompt com CRLF (como no Windows) é lido pelo agente simulado: line_count 12, sem 'blocked by policy'
+PASS R3b Prompt embutido contém o arquivo como DADOS e o sandbox continua read-only
+PASS R4 Arquivos do laboratório preservados após os cenários R1-R3
+PASS R5 Classificação de textos: política, codificação, cota, autenticação, técnico e nenhum são distintos
+PASS R6 Arquivo não-UTF-8: erro de ENCODING (não política), agente não iniciado, sem transferência
+PASS R7 Extra permitido (windows.sandbox=unelevated) entra no comando e mantém --sandbox read-only
+PASS R7b Qualquer outro extra (sandbox mais permissivo) é recusado
+PASS R8 Laboratório ainda idêntico ao original no fim dos cenários V3.3
+PASS S1 Dry-run TASK-0004: aprovado, nenhum agente iniciado, sandbox read-only, conteúdo embutido (12 linhas)
+PASS S2 Dry-run recusa configuração sem 'embedded' (agent_reads)
+PASS S3 Execução (simulada) aprovada: line_count 12, JSON válido, TASK_ACCEPTED, arquivos e locks preservados
+PASS S3c Regressão: agent_started da evidência = True e igual ao relatório da execução real/simulada
+PASS S3b Histórico de TASK-0003 e log antigo preservados; relatório novo é de TASK-0004
+PASS S4 Segunda execução de TASK-0004 é recusada antes de iniciar o agente (execução única)
+PASS S5 Confirmação errada é recusada sem iniciar o agente
+PASS S6 Contagem errada do agente: VALIDACAO_REPROVADA (nunca aprovada), sem nova tentativa
+PASS S7 Laboratório idêntico ao original após a validação TASK-0004
+PASS K Nenhum argumento proibido/git nas chamadas simuladas
+PASS K2 Projeto fora do laboratório é rejeitado
+
+55/55 verificações passaram (agentes SIMULADOS)
+[05/11/2026 20:11:25,60] V3 codigo de saida 0 
+PASS L1 Laboratório Git criado e estado inicial registrado (branch, HEAD, não rastreados)
+PASS L2 O commit-base é o ÚNICO commit e não há tags
+PASS G0 gitops recusa reset/clean/merge/rebase/push/tag/commit/checkout/stash/add
+PASS D1 Dry-run: nada criado, repositório intacto, Git registrado
+PASS D2 Claude: workspace isolado, --restricted, sem shell/rede, permissões por arquivo, sem Bash permitido
+PASS D3 Codex: continua read-only, sem bypass e sem workspace-write; escrita só por proposta
+PASS D4 Codex NÃO pode ser configurado para editar diretamente (sem contornar o shell bloqueado)
+PASS A1 Alteração e criação autorizadas: TASK_ACCEPTED, completed, promovidas
+PASS A2 Não rastreado e ignorado preservados; config.json e demais arquivos idênticos
+PASS A3 Git: HEAD/branch/refs iguais, nenhum commit, nenhuma tag; diff mostra só notas.txt
+PASS A4 Backup, manifesto de preservação, patch (git diff) e relatório gravados
+PASS A5 Locks liberados e histórico (relatório antigo) preservado
+PASS A6 Workspace NÃO contém .git nem arquivos não rastreados/ignorados (conjunto exato = rastreados + criado)
+PASS J0 Restauração exige confirmação exata
+PASS J1 Recuperação sem perda: restaura o original, remove o criado, preserva não rastreados
+PASS B1 Alteração PROIBIDA (config.json): VIOLATION, status violation_review_required, nada promovido, repositório intacto
+PASS B2 Exclusão PROIBIDA (README.txt): VIOLATION, status violation_review_required, nada promovido, repositório intacto
+PASS B3 Criação PROIBIDA (intruso.txt): VIOLATION, status violation_review_required, nada promovido, repositório intacto
+PASS B4 Mais arquivos que o limite: VIOLATION, status violation_review_required, nada promovido, repositório intacto
+PASS B5 Conteúdo grande demais: VIOLATION, status violation_review_required, nada promovido, repositório intacto
+PASS B6 Conteúdo binário: VIOLATION, status violation_review_required, nada promovido, repositório intacto
+PASS B7 Escrita no repositório real (rastreado): detectada, VIOLATION, nada promovido, sem restauração automática (revisão humana)
+PASS B8 Escrita em arquivo NÃO rastreado do repositório real: detectada, VIOLATION, nada promovido, sem restauração automática (revisão humana)
+PASS F1 Falha de validação: EXECUTION_SUCCESS + TASK_REJECTED, nada promovido, repositório intacto
+PASS E1 Interrupção durante a edição: erro técnico, alterações só no workspace, repositório intacto
+PASS T1 Timeout após escrita: TIMEOUT, alterações parciais só no workspace, repositório intacto, processo encerrado, locks livres
+PASS C1 Codex (read-only) propõe, o orquestrador valida e aplica: TASK_ACCEPTED e promovido
+PASS C2 Proposta fora do escopo (config.json): VIOLATION, nada promovido, repositório intacto
+PASS C3 Proposta com '..' (travessia): VIOLATION, nada promovido, repositório intacto
+PASS C4 Codex escreveu no workspace apesar de read-only: VIOLATION, nada promovido, repositório intacto
+PASS C5 Proposta que falha na validação: TASK_REJECTED, nada promovido
+PASS P1 Alteração pendente no arquivo autorizado: recusada, nada sobrescrito, agente nem iniciou
+PASS P2 Alteração pendente em OUTRO arquivo: registrada e preservada; tarefa segue
+PASS P3 Operação Git em andamento (merge): recusada
+PASS P4 Pasta sem repositório Git: recusada
+PASS K Caminho inseguro ['../fora.txt'] é recusado antes de qualquer agente
+PASS K Caminho inseguro ['.git/config'] é recusado antes de qualquer agente
+PASS K Caminho inseguro ['C:/x.txt'] é recusado antes de qualquer agente
+PASS K Caminho inseguro ['a\\b.txt'] é recusado antes de qualquer agente
+PASS K Caminho inseguro ['con.txt'] é recusado antes de qualquer agente
+PASS K Caminho inseguro ['/abs.txt'] é recusado antes de qualquer agente
+PASS K Caminho inseguro ['.gitignore'] é recusado antes de qualquer agente
+PASS K2 Escrita fora de lab\git_lab (outro projeto) é recusada
+PASS K3 git_policy com commit=true é recusada
+PASS K4 Sem confirmação correta nada executa
+PASS S1 Execução simultânea bloqueada (BUSY); a primeira não promove; repositório intacto
+PASS S2 Lock existente impede a escrita e não é removido
+PASS V1 Limite ANTES de modificar arquivos: transferência segura Claude -> Codex (proposta) e promoção
+PASS V2 Limite DEPOIS de modificar arquivos: interrompe, exige revisão, NÃO transfere, repositório intacto
+PASS V3 Nova tentativa fica bloqueada até revisão humana
+PASS V4 Violação de escopo interrompe a cadeia (sem transferir)
+PASS V5 Interrupção durante a edição (processo morto): não transfere e exige revisão
+PASS V6 Ambos no limite sem alterações: para (nenhum agente elegível) e repositório intacto
+PASS V7 Sem transferência: Claude conclui e promove
+PASS V8 Repositório mudou entre passos: o passo seguinte é recusado, agente não inicia, nada sobrescrito
+PASS Z Projeto de leitura lab/projeto_descartavel não foi tocado pela V4
+
+56/56 verificações passaram (agentes SIMULADOS; esperadas 56)
+[05/11/2026 20:12:02,65] V4 codigo de saida 0 
+Processos fake_agent restantes: nenhum

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "transfer_id": "TRANSFER-20261105_155240703-TASK-0003",
+  "task_id": "TASK-0003",
+  "state": "task_rejected_review_required",
+  "started_at": "2026-11-05T15:52:40-03:00",
+  "finished_at": "2026-11-05T15:52:53-03:00",
+  "priority": [
+    "codex_cli",
+    "claude_code"
+  ],
+  "availability_at_start": {
+    "codex_cli": {
+      "state": "UNKNOWN",
+      "note": "registro AVAILABLE_VERIFIED anterior à V3.2 ignorado; reverificar"
+    },
+    "claude_code": {
+      "state": "UNKNOWN",
+      "note": "sem verificação registrada"
+    }
+  },
+  "steps": [
+    {
+      "n": 1,
+      "agent": "codex_cli",
+      "decision": "review_required",
+      "run_id": "RUN-20261105_155240705-TASK-0003-codex_cli",
+      "outcome": "SUCCESS",
+      "status": "task_rejected",
+      "reason": "critérios não atendidos: line_count informado confere com a contagem feita pelo orquestrador"
+    }
+  ],
+  "final_reason": "critérios não atendidos: line_count informado confere com a contagem feita pelo orquestrador",
+  "final_outcome": "TASK_REJECTED",
+  "handoffs": []
+}

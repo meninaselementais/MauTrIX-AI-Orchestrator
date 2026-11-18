@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "task_id": "TASK-0002",
+  "run_id": "RUN-20261105_031336113-TASK-0002-codex_cli",
+  "agent": "codex_cli",
+  "agent_version": "codex-cli 0.166.0",
+  "how_run": "automatic_by_orchestrator",
+  "orchestrator_version": "2.0.0",
+  "project_path": "C:\\Projetos\\MauTrIX-AI-Orchestrator\\lab\\projeto_descartavel",
+  "objective": "Ler texto_exemplo.txt e produzir um relatório estruturado: resumo em até 3 frases, contagem de linhas não vazias, contagem aproximada de palavras, até 5 pontos principais e a próxima ação sugerida.",
+  "mode": "read_only",
+  "started_at": "2026-11-05T03:13:36-03:00",
+  "finished_at": "2026-11-05T03:13:36-03:00",
+  "status": "rejected_by_policy",
+  "exit_code": null,
+  "attempts": [],
+  "summary": "Outro agente ou execução está ativo.",
+  "files_changed": [],
+  "files_created": [],
+  "files_deleted": [],
+  "evidence": [],
+  "git_state": {
+    "before": null,
+    "after": null
+  },
+  "limits_hit": {
+    "detected": false,
+    "kind": null,
+    "raw_message": null,
+    "quota_status": "STATUS DESCONHECIDO"
+  },
+  "errors": [
+    "lock ativo: _global_agent.lock (tarefa TASK-0001, agente claude_code)."
+  ],
+  "risks": [],
+  "pending": [],
+  "acceptance_result": [],
+  "agent_output": null,
+  "next_action_suggested": "Aguardar o término ou conferir o lock.",
+  "command": [
+    "codex.EXE",
+    "exec",
+    "--sandbox",
+    "read-only",
+    "--cd",
+    "C:\\Projetos\\MauTrIX-AI-Orchestrator\\lab\\projeto_descartavel",
+    "--skip-git-repo-check",
+    "--ephemeral",
+    "--ignore-user-config",
+    "--json",
+    "--color",
+    "never",
+    "--output-schema",
+    "C:\\Projetos\\MauTrIX-AI-Orchestrator\\schemas\\agent_result_lab.schema.json",
+    "--output-last-message",
+    "C:\\Projetos\\MauTrIX-AI-Orchestrator\\runs\\RUN-20261105_031336…",
+    "-"
+  ]
+}

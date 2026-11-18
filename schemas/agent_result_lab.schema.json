@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["summary", "line_count", "word_count", "key_points", "next_action"],
+  "properties": {
+    "summary": {"type": "string"},
+    "line_count": {"type": "integer"},
+    "word_count": {"type": "integer"},
+    "key_points": {"type": "array", "items": {"type": "string"}},
+    "next_action": {"type": "string"}
+  }
+}

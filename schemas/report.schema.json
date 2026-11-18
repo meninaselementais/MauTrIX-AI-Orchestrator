@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Relatório padronizado de execução de um agente",
+  "type": "object",
+  "required": ["schema_version", "task_id", "agent", "status", "started_at", "finished_at", "summary", "evidence", "git_state", "limits_hit"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": 1},
+    "task_id": {"type": "string", "pattern": "^TASK-[0-9]{4}$"},
+    "agent": {"type": "string"},
+    "agent_version": {"type": ["string", "null"]},
+    "how_run": {"enum": ["manual_by_user", "automatic_by_orchestrator"]},
+    "status": {"enum": ["completed", "task_rejected", "task_unverified", "completed_with_issues", "failed", "blocked_by_limit", "timed_out", "rejected_by_policy"]},
+    "started_at": {"type": "string"},
+    "finished_at": {"type": "string"},
+    "summary": {"type": "string"},
+    "files_changed": {"type": "array", "items": {"type": "string"}},
+    "files_created": {"type": "array", "items": {"type": "string"}},
+    "evidence": {
+      "type": "array",
+      "description": "Cada afirmação de resultado precisa indicar a classe da evidência.",
+      "items": {
+        "type": "object",
+        "required": ["claim", "class"],
+        "additionalProperties": false,
+        "properties": {
+          "claim": {"type": "string"},
+          "class": {"enum": ["executed_by_agent", "verified_by_orchestrator", "executed_by_user", "static_review", "reused_from_previous_run", "not_verified"]},
+          "source": {"type": "string", "description": "Caminho do log, comando ou arquivo lido."}
+        }
+      }
+    },
+    "git_state": {
+      "type": "object",
+      "required": ["before", "after"],
+      "additionalProperties": false,
+      "properties": {
+        "before": {"type": ["string", "null"], "description": "HEAD e 'status --short' antes. Null se não foi possível obter."},
+        "after": {"type": ["string", "null"]}
+      }
+    },
+    "limits_hit": {
+      "type": "object",
+      "required": ["detected"],
+      "additionalProperties": false,
+      "properties": {
+        "detected": {"type": "boolean"},
+        "kind": {"enum": ["rate_limit", "quota", "timeout", "attempts", "unknown", null]},
+        "raw_message": {"type": ["string", "null"]},
+        "quota_status": {"const": "STATUS DESCONHECIDO", "description": "Não estimar créditos restantes."}
+      }
+    },
+    "run_id": {"type": "string"},
+    "outcome": {"type": "string"},
+    "execution_result": {"type": ["string", "null"], "description": "EXECUTION_SUCCESS = processo executou sem efeitos colaterais; não significa tarefa aprovada."},
+    "task_verdict": {"enum": ["TASK_ACCEPTED", "TASK_REJECTED", "TASK_UNVERIFIED", "NOT_EVALUATED"]},
+    "rejected_criteria": {"type": "array", "items": {"type": "string"}},
+    "orchestrator_version": {"type": "string"},
+    "project_path": {"type": "string"},
+    "objective": {"type": "string"},
+    "mode": {"type": ["string", "null"]},
+    "exit_code": {"type": ["integer", "null"]},
+    "command": {"type": "array", "items": {"type": "string"}},
+    "attempts": {"type": "array", "items": {"type": "object"}},
+    "files_deleted": {"type": "array", "items": {"type": "string"}},
+    "errors": {"type": "array", "items": {"type": "string"}},
+    "agent_output": {"type": ["object", "null"]},
+    "next_action_suggested": {"type": "string"},
+    "risks": {"type": "array", "items": {"type": "string"}},
+    "pending": {"type": "array", "items": {"type": "string"}},
+    "acceptance_result": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["criterion", "met"],
+        "additionalProperties": false,
+        "properties": {
+          "criterion": {"type": "string"},
+          "met": {"enum": ["yes", "no", "not_verified"]}
+        }
+      }
+    }
+  }
+}

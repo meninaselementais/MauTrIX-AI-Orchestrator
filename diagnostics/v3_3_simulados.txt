@@ -1,0 +1,61 @@
+[05/11/2026 18:58:17,07] inicio 
+Python 3.11.9
+PASS A Codex disponível e tarefa concluída
+PASS B Codex limite -> transfere ao Claude
+PASS C Claude limite -> transfere ao Codex
+PASS D Ambos indisponíveis: interrompe
+PASS D2 Segunda tentativa não reexecuta agentes em QUOTA_LIMITED válido
+PASS E Erro técnico NÃO é limite e NÃO transfere
+PASS E2 overloaded/529 é técnico, não limite
+PASS F Saída inválida (código 0): sem transferir
+PASS F2 Mesma tarefa bloqueada até revisão humana
+PASS F3 Processo morto no meio: sem transferir
+PASS F4 Transferência interrompida (in_progress) bloqueia reexecução
+PASS G Lock existente impede execução e não é removido
+PASS G2 Execução simultânea recusada enquanto outra roda
+PASS G3 Primeira execução terminou por timeout e liberou locks
+PASS H Timeout: outcome TIMEOUT, parada segura, locks liberados
+PASS H2 Processo do agente foi encerrado
+PASS H3 Recuperação: após revisão, nova execução funciona
+PASS I Escrita indevida detectada, sem transferir e sem apagar
+PASS I2 Arquivos originais do laboratório intactos após todos os cenários
+PASS Q1 Exit 0 + todos os critérios: EXECUTION_SUCCESS + TASK_ACCEPTED + completed
+PASS Q2 Exit 0 com um critério reprovado (line_count errado): EXECUTION_SUCCESS + TASK_REJECTED, nunca 'completed'
+PASS Q2 Exit 0 com um critério reprovado (line_count errado): NÃO transfere e NÃO é tratada como cota
+PASS Q2 Exit 0 com um critério reprovado (line_count errado): não repete; bloqueada até revisão
+PASS Q3 JSON válido com dados incorretos (zeros, resposta real da V3.1): EXECUTION_SUCCESS + TASK_REJECTED, nunca 'completed'
+PASS Q3 JSON válido com dados incorretos (zeros, resposta real da V3.1): NÃO transfere e NÃO é tratada como cota
+PASS Q3 JSON válido com dados incorretos (zeros, resposta real da V3.1): não repete; bloqueada até revisão
+PASS Q4 Resposta ausente: UNKNOWN_RESULT, sem aprovação e sem transferência
+PASS Q5 'run' com critério reprovado: status task_rejected e código de saída != 0
+PASS Q6 Evidência: tarefa rejeitada NÃO vira A_CODEX_EXECUTOU_COM_SUCESSO
+PASS Q6b Evidência: aprovação real = veredito A
+PASS Q6c Evidência: limite real + transferência aprovada = veredito B
+PASS Q7 Registro AVAILABLE_VERIFIED anterior à V3.2 é tratado como UNKNOWN
+PASS J Erro de autenticação em execução -> transfere (sem efeitos)
+PASS R1 Bloqueio de política: diagnóstico 'policy', TASK_REJECTED, sem transferir, sem cota
+PASS R2 Erro de codificação: diagnóstico 'encoding' (distinto de política), TASK_REJECTED, sem transferir
+PASS R3 Saída correta com entrega embutida (sem depender do shell): TASK_ACCEPTED + completed
+PASS R3c Prompt com CRLF (como no Windows) é lido pelo agente simulado: line_count 12, sem 'blocked by policy'
+PASS R3b Prompt embutido contém o arquivo como DADOS e o sandbox continua read-only
+PASS R4 Arquivos do laboratório preservados após os cenários R1-R3
+PASS R5 Classificação de textos: política, codificação, cota, autenticação, técnico e nenhum são distintos
+PASS R6 Arquivo não-UTF-8: erro de ENCODING (não política), agente não iniciado, sem transferência
+PASS R7 Extra permitido (windows.sandbox=unelevated) entra no comando e mantém --sandbox read-only
+PASS R7b Qualquer outro extra (sandbox mais permissivo) é recusado
+PASS R8 Laboratório ainda idêntico ao original no fim dos cenários V3.3
+PASS S1 Dry-run TASK-0004: aprovado, nenhum agente iniciado, sandbox read-only, conteúdo embutido (12 linhas)
+PASS S2 Dry-run recusa configuração sem 'embedded' (agent_reads)
+PASS S3 Execução (simulada) aprovada: line_count 12, JSON válido, TASK_ACCEPTED, arquivos e locks preservados
+PASS S3c Regressão: agent_started da evidência = True e igual ao relatório da execução real/simulada
+PASS S3b Histórico de TASK-0003 e log antigo preservados; relatório novo é de TASK-0004
+PASS S4 Segunda execução de TASK-0004 é recusada antes de iniciar o agente (execução única)
+PASS S5 Confirmação errada é recusada sem iniciar o agente
+PASS S6 Contagem errada do agente: VALIDACAO_REPROVADA (nunca aprovada), sem nova tentativa
+PASS S7 Laboratório idêntico ao original após a validação TASK-0004
+PASS K Nenhum argumento proibido/git nas chamadas simuladas
+PASS K2 Projeto fora do laboratório é rejeitado
+
+55/55 verificações passaram (agentes SIMULADOS)
+[05/11/2026 18:58:31,83] codigo de saida 0 
+Processos fake_agent restantes: nenhum

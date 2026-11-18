@@ -1,0 +1,120 @@
+{
+  "gerado_em": "2026-11-05T03:05:34",
+  "sistema": "Windows-10-10.0.26300-SP0",
+  "python": "3.11.9",
+  "git": "git version 2.55.0.windows.3",
+  "agentes": [
+    {
+      "id": "claude_code",
+      "display": "Claude Code",
+      "instalado": true,
+      "caminho": "C:\\Users\\MauTrIX\\AppData\\Local\\Microsoft\\WinGet\\Links\\claude.EXE",
+      "versao": "2.1.302 (Claude Code)",
+      "autenticacao": {
+        "state": "AUTENTICADO",
+        "exit_code": 0,
+        "campos_permitidos": {
+          "authMethod": "claude.ai",
+          "loggedIn": true
+        },
+        "primeira_linha": "",
+        "confirmacao_da_fonte": "oficial",
+        "erro": null
+      },
+      "execucao_nao_interativa": {
+        "confirmacao_da_fonte": "oficial",
+        "invocacao_esperada": "claude -p \"<prompt>\"",
+        "marcadores_encontrados_no_help_local": {
+          "--print": true,
+          "--output-format": true
+        },
+        "evidencia": {
+          "--print": [
+            "Claude Code - starts an interactive session by default, use -p/--print for",
+            "with --print the path to a file that",
+            "--print and --output-format=stream-json)"
+          ],
+          "--output-format": [
+            "--print and --output-format=stream-json)",
+            "--output-format=stream-json)",
+            "--output-format=stream-json)"
+          ]
+        },
+        "help_executou": true
+      },
+      "cota": {
+        "status": "STATUS DESCONHECIDO",
+        "motivo": "A documentação lida não descreve comando para consultar o uso restante da assinatura fora da interface interativa."
+      },
+      "notas": []
+    },
+    {
+      "id": "codex_cli",
+      "display": "OpenAI Codex CLI",
+      "instalado": true,
+      "caminho": "C:\\Users\\MauTrIX\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin\\codex.EXE",
+      "versao": "codex-cli 0.166.0",
+      "autenticacao": {
+        "state": "AUTENTICADO",
+        "exit_code": 0,
+        "campos_permitidos": {},
+        "primeira_linha": "Logged in using ChatGPT",
+        "confirmacao_da_fonte": "comunidade",
+        "erro": null
+      },
+      "execucao_nao_interativa": {
+        "confirmacao_da_fonte": "parcial",
+        "invocacao_esperada": "codex exec \"<prompt>\"",
+        "marcadores_encontrados_no_help_local": {
+          "exec": true
+        },
+        "evidencia": {
+          "exec": [
+            "exec              Run Codex non-interactively [aliases: e]",
+            "exec-server       [EXPERIMENTAL] Run the standalone exec-server service",
+            "Select the sandbox policy to use when executing model-generated shell commands"
+          ]
+        },
+        "help_executou": true
+      },
+      "cota": {
+        "status": "STATUS DESCONHECIDO",
+        "motivo": "'/status' existe só na interface interativa. Não há subcomando de status; 'codex exec --json' não traz dados de cota (issue #10233, ainda aberta). Um widget da comunidade usa 'codex app-server' e 'account/rateLimits/read', que não é caminho documentado e não será usado."
+      },
+      "notas": []
+    },
+    {
+      "id": "antigravity_cli",
+      "display": "Google Antigravity CLI",
+      "instalado": false,
+      "caminho": null,
+      "versao": null,
+      "autenticacao": null,
+      "execucao_nao_interativa": null,
+      "cota": {
+        "status": "STATUS DESCONHECIDO",
+        "motivo": "Fonte de terceiros cita '/usage' e '/credits' dentro da interface interativa. Nada confirmado para modo headless."
+      },
+      "notas": [
+        "Executável não encontrado no PATH: agy"
+      ]
+    },
+    {
+      "id": "antigravity_ide",
+      "display": "Google Antigravity IDE",
+      "instalado": false,
+      "caminho": null,
+      "versao": null,
+      "autenticacao": null,
+      "execucao_nao_interativa": null,
+      "cota": {
+        "status": "STATUS DESCONHECIDO",
+        "motivo": "Sem fonte confiável."
+      },
+      "notas": [
+        "Executável não encontrado no PATH: antigravity"
+      ]
+    }
+  ],
+  "aviso": "Cota: STATUS DESCONHECIDO para todos os agentes. Nenhum token, cookie ou arquivo de autenticação foi lido."
+}

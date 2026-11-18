@@ -1,0 +1,12 @@
+Relatorio interno da biblioteca fictícia Alfa
+A biblioteca Alfa abre de segunda a sexta, das 8h às 18h.
+O acervo possui 1200 livros, 300 revistas e 45 mapas antigos.
+Em outubro foram feitos 87 empréstimos e 12 renovações.
+Três livros foram devolvidos com atraso de mais de 15 dias.
+A sala de leitura tem 20 lugares e dois computadores.
+Um dos computadores está com defeito desde o dia 3.
+O orçamento mensal para compras é de 2500 reais.
+A prioridade de compra é reposição de livros infantis.
+A equipe tem quatro pessoas e uma estagiária.
+Está planejada uma oficina de leitura para o dia 22.
+Pendência principal: consertar o computador da sala de leitura.

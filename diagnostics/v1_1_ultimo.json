@@ -1,0 +1,221 @@
+{
+  "gerado_em": "2026-11-05T03:05:35",
+  "versao_script": "1.1",
+  "claude_code": {
+    "executavel": "C:\\Users\\MauTrIX\\AppData\\Local\\Microsoft\\WinGet\\Links\\claude.EXE",
+    "help_principal": {
+      "ok": true,
+      "exit_code": 0,
+      "arquivo": "diagnostics\\help\\claude_help.txt"
+    },
+    "flags": {
+      "--print": true,
+      "--output-format": true,
+      "--input-format": true,
+      "--json-schema": true,
+      "--allowedTools": true,
+      "--disallowedTools": true,
+      "--permission-mode": true,
+      "--permission-prompts": true,
+      "--max-budget-usd": true,
+      "--max-turns": false,
+      "--continue": true,
+      "--resume": true,
+      "--append-system-prompt": true,
+      "--add-dir": true,
+      "--model": true,
+      "--settings": true,
+      "--mcp-config": true,
+      "--bare": true,
+      "--verbose": true,
+      "--include-partial-messages": true
+    },
+    "flags_presentes_mas_proibidas_pela_politica": {
+      "--dangerously-skip-permissions": true
+    },
+    "auth_help": {
+      "ok": true,
+      "arquivo": "diagnostics\\help\\claude_auth_help.txt",
+      "subcomando_status_listado": true
+    },
+    "autenticacao": {
+      "state": "AUTENTICADO",
+      "exit_code": 0,
+      "campos_permitidos": {
+        "authMethod": "claude.ai",
+        "loggedIn": true
+      },
+      "primeira_linha": "",
+      "confirmacao_da_fonte": "oficial",
+      "erro": null
+    },
+    "linhas_sobre_uso_ou_limite_no_help": [
+      "Usage: claude [options] [command] [prompt]"
+    ]
+  },
+  "codex_cli": {
+    "executavel": "C:\\Users\\MauTrIX\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin\\codex.EXE",
+    "help_principal": {
+      "ok": true,
+      "exit_code": 0,
+      "arquivo": "diagnostics\\help\\codex_help.txt"
+    },
+    "exec_help": {
+      "ok": true,
+      "exit_code": 0,
+      "arquivo": "diagnostics\\help\\codex_exec_help.txt"
+    },
+    "login_help": {
+      "ok": true,
+      "exit_code": 0,
+      "arquivo": "diagnostics\\help\\codex_login_help.txt"
+    },
+    "login_status_help": {
+      "ok": true,
+      "exit_code": 0,
+      "arquivo": "diagnostics\\help\\codex_login_status_help.txt",
+      "primeiras_linhas": [
+        "Show login status",
+        "Usage: codex login status [OPTIONS]",
+        "Options:",
+        "-c, --config <key=value>",
+        "Override a configuration value that would otherwise be loaded from `~/.codex/config.toml`.",
+        "Use a dotted path (`foo.bar.baz`) to override nested values. The `value` portion is parsed",
+        "as TOML. If it fails to parse as TOML, the raw string is used as a literal.",
+        "Examples: - `-c model=\"o3\"` - `-c 'sandbox_permissions=[\"disk-full-read-access\"]'` - `-c"
+      ]
+    },
+    "flags_exec": {
+      "--json": true,
+      "--sandbox": true,
+      "--output-last-message": true,
+      "--cd": true,
+      "--skip-git-repo-check": true,
+      "--model": true,
+      "--output-schema": true,
+      "--color": true,
+      "--ephemeral": true,
+      "--profile": true,
+      "--config": true,
+      "--ask-for-approval": false,
+      "--full-auto": false
+    },
+    "flags_presentes_mas_proibidas_pela_politica": {
+      "--dangerously-bypass-approvals-and-sandbox": true
+    },
+    "subcomandos_listados_no_help_principal": [
+      "agents            Browse all agent sessions on the shared local app-server daemon",
+      "exec              Run Codex non-interactively [aliases: e]",
+      "review            Run a code review non-interactively",
+      "login             Manage login",
+      "logout            Remove stored authentication credentials",
+      "mcp               Manage external MCP servers for Codex",
+      "plugin            Manage Codex plugins",
+      "app-server        [experimental] Run the app server or related tooling",
+      "remote-control    [experimental] Manage the app-server daemon with remote control enabled",
+      "app               Launch the Desktop app (opens the app installer if missing)",
+      "completion        Generate shell completion scripts",
+      "update            Update Codex to the latest version",
+      "doctor            Diagnose local Codex installation, config, auth, and runtime health",
+      "sandbox           Run commands within a Codex-provided sandbox",
+      "debug             Debugging tools",
+      "apply             Apply the latest diff produced by Codex agent as a `git apply` to your local",
+      "resume            Resume a previous interactive session (picker by default; use --last to continue",
+      "queue             Queue a message for an existing session",
+      "archive           Archive a saved session by id or session name",
+      "delete            Permanently delete a saved session by id or session name",
+      "migrate-rollouts  Inspect or migrate legacy local sessions to paginated thread history",
+      "migrate-nfs-db    [experimental] Migrate configured SQLite databases to DELETE mode in place",
+      "unarchive         Unarchive a saved session by id or session name",
+      "fork              Fork a previous interactive session (picker by default; use --last to fork the",
+      "cloud             [EXPERIMENTAL] Browse tasks from Codex Cloud and apply changes locally",
+      "exec-server       [EXPERIMENTAL] Run the standalone exec-server service",
+      "features          Inspect feature flags",
+      "help              Print this message or the help of the given subcommand(s)"
+    ],
+    "autenticacao": {
+      "state": "AUTENTICADO",
+      "exit_code": 0,
+      "campos_permitidos": {},
+      "primeira_linha": "Logged in using ChatGPT",
+      "confirmacao_da_fonte": "observado_localmente",
+      "erro": null
+    },
+    "linhas_sobre_uso_ou_limite_no_help": {
+      "principal": [
+        "Usage: codex [OPTIONS] [PROMPT]"
+      ],
+      "exec": [
+        "Usage: codex exec [OPTIONS] [PROMPT]"
+      ],
+      "login": [
+        "Usage: codex login [OPTIONS] [COMMAND]"
+      ]
+    }
+  },
+  "antigravity": {
+    "path": {
+      "agy": null,
+      "antigravity": null,
+      "Antigravity": null
+    },
+    "pastas_convencionais": [
+      {
+        "pasta": "C:\\Users\\MauTrIX\\AppData\\Local\\Programs\\Antigravity IDE",
+        "e_diretorio": true,
+        "executaveis": [
+          "Antigravity IDE.exe",
+          "bin\\antigravity-ide.cmd",
+          "unins000.exe"
+        ]
+      },
+      {
+        "pasta": "C:\\Users\\MauTrIX\\AppData\\Local\\Programs\\antigravity",
+        "e_diretorio": true,
+        "executaveis": [
+          "Antigravity.exe",
+          "Uninstall Antigravity.exe"
+        ]
+      },
+      {
+        "pasta": "C:\\Users\\MauTrIX\\AppData\\Local\\antigravity-updater",
+        "e_diretorio": true,
+        "executaveis": [
+          "installer.exe"
+        ]
+      }
+    ],
+    "atalhos": [
+      "C:\\Users\\MauTrIX\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Antigravity.lnk",
+      "C:\\Users\\MauTrIX\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Antigravity IDE\\Antigravity IDE.lnk"
+    ],
+    "registro": {
+      "disponivel": true,
+      "uninstall": [
+        {
+          "hive": "HKCU",
+          "DisplayName": "Antigravity 2.29.0",
+          "DisplayVersion": "2.29.0",
+          "Publisher": "Google",
+          "InstallLocation": null
+        },
+        {
+          "hive": "HKCU",
+          "DisplayName": "Antigravity IDE (User)",
+          "DisplayVersion": "2.1.1",
+          "Publisher": "Google",
+          "InstallLocation": "C:\\Users\\MauTrIX\\AppData\\Local\\Programs\\Antigravity IDE\\"
+        }
+      ],
+      "app_paths": []
+    },
+    "pastas_de_usuario_apenas_existencia": {
+      ".antigravity-ide": true,
+      ".gemini": true,
+      "APPDATA\\Antigravity": true,
+      "APPDATA\\Antigravity IDE": true
+    },
+    "observacao": "Pastas de usuário (.antigravity-ide, .gemini, APPDATA) são só confirmadas como existentes; seu conteúdo não foi listado nem aberto. Existência dessas pastas não prova instalação atual."
+  },
+  "aviso": "Nenhuma tarefa foi executada. Nenhum token, cookie ou arquivo de credenciais foi aberto."
+}

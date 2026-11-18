@@ -1,0 +1,3 @@
+Projeto descartável de laboratório do MauTrIX AI Orchestrator.
+Não é um repositório Git. Não contém nada importante. Pode ser recriado a qualquer momento.
+Os testes da V2 rodam em modo somente leitura e esperam que NENHUM arquivo daqui mude.

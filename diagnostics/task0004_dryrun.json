@@ -1,0 +1,79 @@
+{
+  "checked_at": "2026-11-05T17:25:56-03:00",
+  "task": {
+    "task_id": "TASK-0004",
+    "agent": "codex_cli",
+    "mode": "read_only",
+    "project": "C:\\Projetos\\MauTrIX-AI-Orchestrator\\lab\\projeto_descartavel",
+    "context_files": [
+      "texto_exemplo.txt"
+    ],
+    "max_attempts": 1
+  },
+  "enabled_for_real_projects": false,
+  "codex_config": {
+    "context_delivery": "embedded",
+    "exec_extra_args": [],
+    "enabled": true
+  },
+  "context_file": {
+    "sha256": "cc584d7a6704c46d98acdffca29f06621bb098de94c2297aa8ef1627fcf0e63d",
+    "bytes": 670,
+    "non_empty_lines": 12
+  },
+  "codex_executable_found_in_path": true,
+  "command": [
+    "codex.EXE",
+    "exec",
+    "--sandbox",
+    "read-only",
+    "--cd",
+    "C:\\Projetos\\MauTrIX-AI-Orchestrator\\lab\\projeto_descartavel",
+    "--skip-git-repo-check",
+    "--ephemeral",
+    "--ignore-user-config",
+    "--json",
+    "--color",
+    "never",
+    "--output-schema",
+    "C:\\Projetos\\MauTrIX-AI-Orchestrator\\schemas\\agent_result_lab.schema.json",
+    "--output-last-message",
+    "C:\\Projetos\\MauTrIX-AI-Orchestrator\\runs\\_dryrun_nao_criado\\…",
+    "-"
+  ],
+  "sandbox": "read-only",
+  "prompt": {
+    "embeds_file_content": true,
+    "embedded_non_empty_lines": 12,
+    "tells_agent_no_commands_needed": true,
+    "tells_agent_to_use_shell": false
+  },
+  "locks_before": [],
+  "previous_task0004_runs": [],
+  "task0003_history_files": [
+    "reports/RUN-20261105_154231375-TASK-0003-codex_cli.json",
+    "reports/RUN-20261105_154231375-TASK-0003-codex_cli.md",
+    "reports/RUN-20261105_155240705-TASK-0003-codex_cli.json",
+    "reports/RUN-20261105_155240705-TASK-0003-codex_cli.md",
+    "reports/TRANSFER-20261105_154231373-TASK-0003.json",
+    "reports/TRANSFER-20261105_154231373-TASK-0003.md",
+    "reports/TRANSFER-20261105_155240703-TASK-0003.json",
+    "reports/TRANSFER-20261105_155240703-TASK-0003.md",
+    "reports/TRANSFER-20261105_172526021-TASK-0003.json",
+    "reports/TRANSFER-20261105_172526021-TASK-0003.md",
+    "runs/RUN-20261105_154231375-TASK-0003-codex_cli/codex_last_message.json",
+    "runs/RUN-20261105_154231375-TASK-0003-codex_cli/prompt.txt",
+    "runs/RUN-20261105_154231375-TASK-0003-codex_cli/stderr_1.txt",
+    "runs/RUN-20261105_154231375-TASK-0003-codex_cli/stdout_1.txt",
+    "runs/RUN-20261105_154231375-TASK-0003-codex_cli/task.json",
+    "runs/RUN-20261105_155240705-TASK-0003-codex_cli/codex_last_message.json",
+    "runs/RUN-20261105_155240705-TASK-0003-codex_cli/prompt.txt",
+    "runs/RUN-20261105_155240705-TASK-0003-codex_cli/stderr_1.txt",
+    "runs/RUN-20261105_155240705-TASK-0003-codex_cli/stdout_1.txt",
+    "runs/RUN-20261105_155240705-TASK-0003-codex_cli/task.json"
+  ],
+  "mode": "dry-run",
+  "agent_started": false,
+  "problems": [],
+  "verdict": "DRY_RUN_OK"
+}

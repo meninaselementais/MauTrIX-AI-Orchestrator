@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task_id": "TASK-0004",
+  "created_by": "V3.3 validação real do Codex com contexto embutido",
+  "project_path": "C:\\Projetos\\MauTrIX-AI-Orchestrator\\lab\\projeto_descartavel",
+  "agent": "codex_cli",
+  "mode": "read_only",
+  "objective": "Analisar o conteúdo de texto_exemplo.txt que já está neste prompt e produzir um relatório estruturado: resumo em até 3 frases, contagem de linhas não vazias, contagem aproximada de palavras, até 5 pontos principais e a próxima ação sugerida.",
+  "context_files": ["texto_exemplo.txt"],
+  "forbidden_paths": [],
+  "limits": {"timeout_seconds": 300, "max_attempts": 1},
+  "git_policy": {"commit": false, "push": false, "merge": false, "tag": false},
+  "acceptance": [
+    "Nenhum arquivo do laboratório foi criado, alterado ou removido",
+    "A resposta do agente é um JSON válido conforme o schema",
+    "line_count informado confere com a contagem feita pelo orquestrador"
+  ],
+  "notes": "Validação única do Codex em modo embedded. Agente fixo (sem transferência para o Claude). Não usar o projeto do jogo."
+}

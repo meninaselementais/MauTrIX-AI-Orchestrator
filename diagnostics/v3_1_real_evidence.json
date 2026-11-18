@@ -1,0 +1,66 @@
+{
+  "started_at": "2026-11-05T17:25:26-03:00",
+  "python": "3.11.9",
+  "preflight": {
+    "mode": "read_only",
+    "agent": "any_available",
+    "project_path": "C:\\Projetos\\MauTrIX-AI-Orchestrator\\lab\\projeto_descartavel",
+    "validate_errors": [],
+    "enabled_for_real_projects": false,
+    "priority": [
+      "codex_cli",
+      "claude_code"
+    ],
+    "agents_enabled": {
+      "claude_code": true,
+      "codex_cli": true,
+      "antigravity_cli": false,
+      "antigravity_ide": false
+    },
+    "locks_before": [],
+    "availability_before": {
+      "claude_code": {
+        "state": "UNKNOWN",
+        "note": "sem verificação registrada"
+      },
+      "codex_cli": {
+        "state": "UNKNOWN",
+        "note": "registro AVAILABLE_VERIFIED anterior à V3.2 ignorado; reverificar"
+      }
+    }
+  },
+  "lab_before": {
+    "projeto_descartavel/LEIA-ME.txt": "098829b1cce0c83bca1793aad1e29708b9e75d9e7ea2cbfb3bd6b5a2aeb2c6be",
+    "projeto_descartavel/texto_exemplo.txt": "cc584d7a6704c46d98acdffca29f06621bb098de94c2297aa8ef1627fcf0e63d"
+  },
+  "lab_after": {
+    "projeto_descartavel/LEIA-ME.txt": "098829b1cce0c83bca1793aad1e29708b9e75d9e7ea2cbfb3bd6b5a2aeb2c6be",
+    "projeto_descartavel/texto_exemplo.txt": "cc584d7a6704c46d98acdffca29f06621bb098de94c2297aa8ef1627fcf0e63d"
+  },
+  "lab_diff": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+  },
+  "locks_after": [],
+  "transfer": {
+    "transfer_id": "TRANSFER-20261105_172526021-TASK-0003",
+    "state": "rejected",
+    "final_reason": "registro anterior bloqueia nova execução (TRANSFER-20261105_155240703-TASK-0003.json): resultado desconhecido ou transferência interrompida; revisar manualmente e mover o registro para reports\\resolved\\",
+    "priority": [
+      "codex_cli",
+      "claude_code"
+    ],
+    "steps": [],
+    "handoffs": []
+  },
+  "agent_initially_chosen": null,
+  "agent_that_executed_successfully": null,
+  "transfer_reason": null,
+  "runs": [],
+  "verdict": "INTERROMPIDO",
+  "problems": [
+    "estado final rejected: registro anterior bloqueia nova execução (TRANSFER-20261105_155240703-TASK-0003.json): resultado desconhecido ou transferência interrompida; revisar manualmente e mover o registro para reports\\resolved\\"
+  ],
+  "finished_at": "2026-11-05T17:25:26-03:00"
+}

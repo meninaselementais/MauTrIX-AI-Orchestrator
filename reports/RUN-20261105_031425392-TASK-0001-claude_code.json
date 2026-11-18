@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "task_id": "TASK-0001",
+  "run_id": "RUN-20261105_031425392-TASK-0001-claude_code",
+  "agent": "claude_code",
+  "agent_version": "2.1.302 (Claude Code)",
+  "how_run": "automatic_by_orchestrator",
+  "orchestrator_version": "2.0.0",
+  "project_path": "C:\\Projetos\\MauTrIX-AI-Orchestrator\\lab\\projeto_descartavel",
+  "objective": "Ler texto_exemplo.txt e produzir um relatório estruturado: resumo em até 3 frases, contagem de linhas não vazias, contagem aproximada de palavras, até 5 pontos principais e a próxima ação sugerida.",
+  "mode": "read_only",
+  "started_at": "2026-11-05T03:14:25-03:00",
+  "finished_at": "2026-11-05T03:14:36-03:00",
+  "status": "completed",
+  "exit_code": 0,
+  "attempts": [
+    {
+      "n": 1,
+      "exit_code": 0,
+      "seconds": 10.9,
+      "timed_out": false,
+      "error": null,
+      "limit_signal": false
+    }
+  ],
+  "summary": "O texto é um relatório interno da biblioteca fictícia Alfa, com horário de funcionamento, acervo, movimentação de outubro, infraestrutura, orçamento e equipe. Em outubro houve 87 empréstimos e 12 renovações, e três livros voltaram com mais de 15 dias de atraso. A pendência principal é consertar o computador da sala de leitura, com defeito desde o dia 3.",
+  "files_changed": [],
+  "files_created": [],
+  "files_deleted": [],
+  "evidence": [
+    {
+      "claim": "Agente executado pelo orquestrador; código de saída 0",
+      "class": "executed_by_agent",
+      "source": "runs/RUN-20261105_031425392-TASK-0001-claude_code/stdout_*.txt"
+    },
+    {
+      "claim": "Snapshot SHA-256 do laboratório antes e depois",
+      "class": "verified_by_orchestrator",
+      "source": "lab/"
+    },
+    {
+      "claim": "Linhas não vazias contadas pelo orquestrador: 12",
+      "class": "verified_by_orchestrator",
+      "source": "texto_exemplo.txt"
+    }
+  ],
+  "git_state": {
+    "before": null,
+    "after": null
+  },
+  "limits_hit": {
+    "detected": false,
+    "kind": null,
+    "raw_message": null,
+    "quota_status": "STATUS DESCONHECIDO"
+  },
+  "errors": [],
+  "risks": [],
+  "pending": [
+    "Git não é usado no laboratório; git_state não se aplica."
+  ],
+  "acceptance_result": [
+    {
+      "criterion": "Nenhum arquivo do laboratório foi criado, alterado ou removido",
+      "met": "yes"
+    },
+    {
+      "criterion": "A resposta do agente é um JSON válido conforme o schema",
+      "met": "yes"
+    },
+    {
+      "criterion": "line_count informado confere com a contagem feita pelo orquestrador",
+      "met": "yes"
+    }
+  ],
+  "agent_output": {
+    "summary": "O texto é um relatório interno da biblioteca fictícia Alfa, com horário de funcionamento, acervo, movimentação de outubro, infraestrutura, orçamento e equipe. Em outubro houve 87 empréstimos e 12 renovações, e três livros voltaram com mais de 15 dias de atraso. A pendência principal é consertar o computador da sala de leitura, com defeito desde o dia 3.",
+    "line_count": 12,
+    "word_count": 114,
+    "key_points": [
+      "A biblioteca funciona de segunda a sexta, das 8h às 18h, e tem acervo de 1200 livros, 300 revistas e 45 mapas antigos.",
+      "Em outubro foram feitos 87 empréstimos e 12 renovações; três livros foram devolvidos com mais de 15 dias de atraso.",
+      "A sala de leitura tem 20 lugares e dois computadores, um deles com defeito desde o dia 3.",
+      "O orçamento mensal para compras é de 2500 reais, com prioridade para a reposição de livros infantis.",
+      "A equipe tem quatro pessoas e uma estagiária, e há uma oficina de leitura planejada para o dia 22."
+    ],
+    "next_action": "Providenciar o conserto do computador com defeito da sala de leitura, de preferência antes da oficina de leitura do dia 22."
+  },
+  "next_action_suggested": "Sugestão do agente: Providenciar o conserto do computador com defeito da sala de leitura, de preferência antes da oficina de leitura do dia 22.",
+  "command": [
+    "claude.EXE",
+    "-p",
+    "--output-format",
+    "json",
+    "--json-schema",
+    "{\"type\":\"object\",\"additionalProperties\":false,\"required\":[\"s…",
+    "--permission-mode",
+    "dontAsk",
+    "--permission-prompts",
+    "none",
+    "--allowedTools",
+    "Read,Glob,Grep",
+    "--restricted",
+    "--safe-mode",
+    "--no-session-persistence",
+    "--effort",
+    "low"
+  ]
+}
